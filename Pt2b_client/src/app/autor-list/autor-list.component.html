@@ -1,0 +1,27 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      {{titolLlistat}}
+    </div>
+    <div *ngIf="autors.length==0">
+      <h4>No hi ha autors</h4>
+    </div>
+    <div *ngIf="autors.length>0" class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Nom</th>
+          <th>Cognoms</th>
+          <th>Imatge</th>
+        </tr>
+            </thead>
+      <tbody>
+        <tr *ngFor="let autor of autors">
+          <td>{{autor.nom}}</td>
+          <td>{{autor.cognoms}}</td>
+          <td><img src="{{autor.imatge}}" alt="" class="img-thumbnail" style="height: 30%; width: 30%;"></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>

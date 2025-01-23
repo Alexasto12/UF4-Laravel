@@ -1,0 +1,29 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      {{titolLlistat}}
+    </div>
+    <div *ngIf="llibres.length==0">
+      <h4>No hi ha llibres</h4>
+    </div>
+    <div *ngIf="llibres.length>0" class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Titol</th>
+          <th>Data de Publicacio</th>
+          <th>Vendes</th>
+          <th>Autor</th>
+        </tr>
+            </thead>
+      <tbody>
+        <tr *ngFor="let llibre of llibres">
+          <td>{{llibre.titol}}</td>
+          <td>{{llibre.dataP}}</td>
+            <td>{{llibre.vendes}}</td>
+          <td>{{llibre.autor.nom}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>

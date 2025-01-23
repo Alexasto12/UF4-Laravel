@@ -15,7 +15,7 @@ class ApiController extends Controller
     return $llibre;
   }
   function getLlibres () {
-    return Llibre::all();
+    return Llibre::with('autor')->get();
  }
  function getLlibre ($id) {
     return Llibre::find($id);
@@ -51,7 +51,13 @@ class ApiController extends Controller
   }
 
       function getAutors () {
-        return Autor::all();
+        $autors = Autor::all();
+        foreach ($autors as $autor) {
+          $autor->imatge =  url('api/autor/'.$autor->id.'/imatgeFitxer');
+        }
+        
+        
+        return $autors;
       }
 
       function getAutor ($id) {
