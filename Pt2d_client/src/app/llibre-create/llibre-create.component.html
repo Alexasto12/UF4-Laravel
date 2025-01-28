@@ -1,0 +1,26 @@
+<h3 class="fill-remaining-space">Nou llibre</h3>
+<div class="container">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+    <div class="form-group">
+      <label for="titol">Títol:</label>
+      <input class="form-control" formControlName="titol" id="titol">
+    </div>
+    <div class="form-group">
+      <label for="dataP">Data de publicació:</label>
+      <input type="date" class="form-control" formControlName="dataP" id="dataP">
+    </div>
+    <div class="form-group">
+      <label for="vendes">Vendes:</label>
+      <input type="number" class="form-control" formControlName="vendes" id="vendes">
+    </div>
+    <div class="form-group">
+      <label for="autor">Autor:</label>
+     <select class="form-control" formControlName="autor" id="autor">
+       <option *ngFor="let autor of autors" [value]="autor._id">{{ autor.nom }} {{autor.cognoms}} </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>

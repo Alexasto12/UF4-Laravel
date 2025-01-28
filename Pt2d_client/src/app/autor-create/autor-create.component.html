@@ -1,0 +1,19 @@
+<h3 class="fill-remaining-space">Nou autor</h3>
+<div class="container">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+        <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input class="form-control" formControlName="nom" id="nom">
+        </div>
+        <div class="form-group">
+            <label for="cognoms">Cognom:</label>
+            <input class="form-control" formControlName="cognoms" id="cognoms">
+        </div>
+        <div class="form-group">
+            <label for="imatge">Imatge:</label>
+            <input type="file" class="form-control" formControlName="imatge"  (change)="onFileSelect($event)"  id="imatge">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
